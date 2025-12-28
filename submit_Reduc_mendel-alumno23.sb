@@ -1,0 +1,17 @@
+#!/bin/bash 
+#SBATCH -p hpc-bio-mendel
+#SBATCH --chdir=/home/alumno23/lab-py-advan 
+#SBATCH --job-name=lab5_2_tiempos 
+#SBATCH --output=lab5_2.out
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1 #número de núcleos a usar (1,2,4,8)
+
+module load anaconda/2025.06
+ 
+export VALUE=1000000000 #Número de elementos a usar (usarlo para 10^8 y 10^9)
+
+# Ejecutar notebook
+ipython reduc-operation-array-par-alumno23.ipynb
+
+#Descarga del módulo usado
+module unload anaconda/2025.06
